@@ -12,7 +12,7 @@ Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}%{_beta}.tar.gz
 URL:		http://www.kde-apps.org/content/show.php?content=29552
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	intltool
+BuildRequires:	kdelibs-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
