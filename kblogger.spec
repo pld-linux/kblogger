@@ -4,7 +4,7 @@ SUmmary(de):	KBlogger - ein Kickerapplet fürs schnelle bloggen
 Summary(pl):	KBlogger - aplet kickera do szybkiego blogowania
 Name:		kblogger
 Version:	0.6
-Release:	0.%{_beta}.1
+Release:	0.%{_beta}.2
 License:	GPL
 Group:		X11/Applications
 Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}%{_beta}.tar.gz
@@ -47,7 +47,9 @@ API 1.0. Wsparcie dla Atom API jest planowane.
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	kde_htmldir=%{_kdedocdir} \
+	kde_libs_htmldir=%{_kdedocdir}
 
 %find_lang %{name} --with-kde
 
@@ -68,5 +70,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/crystalsvg/48x48/apps/kblogger.png
 %{_iconsdir}/crystalsvg/64x64/apps/kblogger.png
 %{_iconsdir}/crystalsvg/scalable/apps/kblogger.svg
-# ???
-%{_datadir}/doc/HTML/en/src/*
+%{_datadir}/doc/kde/HTML/en/kblogger/*
+%{_datadir}/doc/kde/HTML/en/src/*
