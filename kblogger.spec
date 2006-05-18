@@ -39,7 +39,8 @@ API 1.0. Wsparcie dla Atom API jest planowane.
 
 %build
 %{__make} -f Makefile.cvs
-%configure
+%configure \
+	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
