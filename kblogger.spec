@@ -6,13 +6,13 @@ Name:		kblogger
 Version:	0.6
 Release:	0.%{_beta}.1
 License:	GPL
-Group:		Applications
+Group:		X11/Applications
 Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}%{_beta}.tar.gz
 # Source0-md5:	e25c92bec7d116b1e229f02c1da582ed
 URL:		http://www.kde-apps.org/content/show.php?content=29552
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	kdelibs-devel
+BuildRequires:	kdelibs-devel >= 3.0
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -48,13 +48,12 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%find_lang %{name} --with-kde
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%post   -p /sbin/ldconfig
-%postun -p /sbin/ldconfig
-
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/kde3/kblogger_panelapplet.so
@@ -68,5 +67,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/crystalsvg/48x48/apps/kblogger.png
 %{_iconsdir}/crystalsvg/64x64/apps/kblogger.png
 %{_iconsdir}/crystalsvg/scalable/apps/kblogger.svg
-%{_datadir}/doc/HTML/en/kblogger/*
+# ???
 %{_datadir}/doc/HTML/en/src/*
