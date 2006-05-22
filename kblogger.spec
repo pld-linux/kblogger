@@ -34,7 +34,7 @@ wspiera Meta-Weblog-Api, u¿ywane przez wiêkszo¶æ blogów, oraz Bloger
 API 1.0. Wsparcie dla Atom API jest planowane.
 
 %prep
-%setup -q -n %{name}-%{version}
+%setup -q
 
 %build
 %{__make} -f Makefile.cvs
