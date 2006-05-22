@@ -1,14 +1,13 @@
-%define		_beta	beta2
 Summary:	KBlogger - kicker applet for quick blogging
 SUmmary(de):	KBlogger - ein Kickerapplet fürs schnelle bloggen
 Summary(pl):	KBlogger - aplet kickera do szybkiego blogowania
 Name:		kblogger
-Version:	0.6
-Release:	0.%{_beta}.2
+Version:	0.6.1
+Release:	1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}%{_beta}.tar.gz
-# Source0-md5:	e25c92bec7d116b1e229f02c1da582ed
+Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}.tar.gz
+# Source0-md5:	20ad9b23c0454af8259191c37c4449ef
 URL:		http://www.kde-apps.org/content/show.php?content=29552
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -35,7 +34,7 @@ wspiera Meta-Weblog-Api, u¿ywane przez wiêkszo¶æ blogów, oraz Bloger
 API 1.0. Wsparcie dla Atom API jest planowane.
 
 %prep
-%setup -q -n %{name}-%{version}%{_beta}
+%setup -q -n %{name}-%{version}
 
 %build
 %{__make} -f Makefile.cvs
