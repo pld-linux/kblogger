@@ -2,12 +2,12 @@ Summary:	KBlogger - kicker applet for quick blogging
 SUmmary(de):	KBlogger - ein Kickerapplet fürs schnelle bloggen
 Summary(pl):	KBlogger - aplet kickera do szybkiego blogowania
 Name:		kblogger
-Version:	0.6.1
+Version:	0.6.2
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}.tar.gz
-# Source0-md5:	20ad9b23c0454af8259191c37c4449ef
+# Source0-md5:	80dde42d5d296aae2a6d1dcfea6447a9
 URL:		http://www.kde-apps.org/content/show.php?content=29552
 BuildRequires:	autoconf
 BuildRequires:	automake
