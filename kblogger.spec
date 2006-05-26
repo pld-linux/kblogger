@@ -11,7 +11,8 @@ Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}.tar.gz
 URL:		http://www.kde-apps.org/content/show.php?content=29552
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	kdelibs-devel >= 3.0
+BuildRequires:	kdebase-devel >= 9:3.0
+BuildRequires:	kdelibs-devel >= 9:3.0
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -36,6 +37,9 @@ API 1.0. Wsparcie dla Atom API jest planowane.
 %prep
 %setup -q
 
+# ??? gcc bug on ac-amd64?
+#sed -i -e 's/QString()/QString(NULL)/' src/kbloggerupload.cpp
+
 %build
 %{__make} -f Makefile.cvs
 %configure \
@@ -49,6 +53,9 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT \
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir}
+
+# sick... sources installed here
+rm -r $RPM_BUILD_ROOT%{_kdedocdir}/en/src
 
 %find_lang %{name} --with-kde
 
@@ -69,5 +76,3 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/crystalsvg/48x48/apps/kblogger.png
 %{_iconsdir}/crystalsvg/64x64/apps/kblogger.png
 %{_iconsdir}/crystalsvg/scalable/apps/kblogger.svg
-%{_datadir}/doc/kde/HTML/en/kblogger/*
-%{_datadir}/doc/kde/HTML/en/src/*
