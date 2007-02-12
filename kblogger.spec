@@ -1,6 +1,6 @@
 Summary:	KBlogger - kicker applet for quick blogging
-Summary(de):	KBlogger - ein Kickerapplet fürs schnelle bloggen
-Summary(pl):	KBlogger - aplet kickera do szybkiego blogowania
+Summary(de.UTF-8):   KBlogger - ein Kickerapplet fÃ¼rs schnelle bloggen
+Summary(pl.UTF-8):   KBlogger - aplet kickera do szybkiego blogowania
 Name:		kblogger
 Version:	0.6.2
 Release:	1
@@ -22,16 +22,16 @@ push the blog button and blog! It currently supports the
 Meta-Weblog-Api, which is supported by most blogs, and Blogger API
 1.0. Support for Atom API is planned.
 
-%description -l de
-KBlogger ist ein Kickerapplet fürs schnelle bloggen, so wie
-gnome-blog. Drück einfach den Knopf und blog loss. Es unterstützt zur
+%description -l de.UTF-8
+KBlogger ist ein Kickerapplet fÃ¼rs schnelle bloggen, so wie
+gnome-blog. DrÃ¼ck einfach den Knopf und blog loss. Es unterstÃ¼tzt zur
 Zeit die Meta-Weblog-API, welche bei den meinsten Blogs verwendet wird
-und Blogger API 1.0. Unterstützung für Atom API ist geplant.
+und Blogger API 1.0. UnterstÃ¼tzung fÃ¼r Atom API ist geplant.
 
-%description -l pl
+%description -l pl.UTF-8
 KBlogger jest apletem kickera do szybkiego blogowania, podobny do
-gnome-bloga. Wystarczy, ¿e wci¶niesz przycisk i blogujesz. Aktualnie
-wspiera Meta-Weblog-Api, u¿ywane przez wiêkszo¶æ blogów, oraz Bloger
+gnome-bloga. Wystarczy, Å¼e wciÅ›niesz przycisk i blogujesz. Aktualnie
+wspiera Meta-Weblog-Api, uÅ¼ywane przez wiÄ™kszoÅ›Ä‡ blogÃ³w, oraz Bloger
 API 1.0. Wsparcie dla Atom API jest planowane.
 
 %prep
