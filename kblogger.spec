@@ -1,6 +1,6 @@
 Summary:	KBlogger - kicker applet for quick blogging
-Summary(de.UTF-8):   KBlogger - ein Kickerapplet fürs schnelle bloggen
-Summary(pl.UTF-8):   KBlogger - aplet kickera do szybkiego blogowania
+Summary(de.UTF-8):	KBlogger - ein Kickerapplet fürs schnelle bloggen
+Summary(pl.UTF-8):	KBlogger - aplet kickera do szybkiego blogowania
 Name:		kblogger
 Version:	0.6.2
 Release:	1
