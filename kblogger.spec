@@ -2,12 +2,15 @@ Summary:	KBlogger - kicker applet for quick blogging
 Summary(de.UTF-8):	KBlogger - ein Kickerapplet fürs schnelle bloggen
 Summary(pl.UTF-8):	KBlogger - aplet kickera do szybkiego blogowania
 Name:		kblogger
-Version:	0.6.2
+Version:	0.6.4
 Release:	1
 License:	GPL
 Group:		X11/Applications
 Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}.tar.gz
-# Source0-md5:	80dde42d5d296aae2a6d1dcfea6447a9
+# Source0-md5:	4f8305423fe25a43b4f75b9f35d02a1c
+Patch0:		kde-ac260.patch
+Patch1:		kde-ac260-lt.patch
+Patch2:		%{name}-am110.patch
 URL:		http://www.kde-apps.org/content/show.php?content=29552
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -36,14 +39,21 @@ API 1.0. Wsparcie dla Atom API jest planowane.
 
 %prep
 %setup -q
+%patch0 -p1
+%patch1 -p1
+%patch2 -p0
 
 # ??? gcc bug on ac-amd64?
 #sed -i -e 's/QString()/QString(NULL)/' src/kbloggerupload.cpp
 
 %build
-%{__make} -f Makefile.cvs
+%{__make} -f admin/Makefile.common cvs
 %configure \
-	--with-qt-libraries=%{_libdir}
+%if "%{_lib}" == "lib64"
+ 	--enable-libsuffix=64 \
+%endif
+	--%{?debug:en}%{!?debug:dis}able-debug%{?debug:=full} \
+ 	--with-qt-libraries=%{_libdir}
 %{__make}
 
 %install
