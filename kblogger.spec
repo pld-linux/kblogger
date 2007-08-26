@@ -1,16 +1,17 @@
+
+%define		_beta	beta2
+
 Summary:	KBlogger - kicker applet for quick blogging
 Summary(de.UTF-8):	KBlogger - ein Kickerapplet fürs schnelle bloggen
 Summary(pl.UTF-8):	KBlogger - aplet kickera do szybkiego blogowania
 Name:		kblogger
-Version:	0.6.5
-Release:	1
+Version:	0.7
+Release:	0.%{_beta}.1
 License:	GPL
 Group:		X11/Applications
-Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}.tar.gz
-# Source0-md5:	5eaae08744591bb9e43cb2eee8254948
-Patch0:		kde-ac260.patch
-Patch1:		kde-ac260-lt.patch
-Patch2:		%{name}-am110.patch
+Source0:	http://kblogger.pwsp.net/files/%{name}-%{version}-%{_beta}.tar.bz2
+# Source0-md5:	05f7dbc27ae264b849ea40e6a705edc8
+Patch0:		kde-ac260-lt.patch
 URL:		http://www.kde-apps.org/content/show.php?content=29552
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -38,13 +39,8 @@ wspiera Meta-Weblog-Api, używane przez większość blogów, oraz Bloger
 API 1.0. Wsparcie dla Atom API jest planowane.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}%{_beta}
 %patch0 -p1
-%patch1 -p1
-%patch2 -p0
-
-# ??? gcc bug on ac-amd64?
-#sed -i -e 's/QString()/QString(NULL)/' src/kbloggerupload.cpp
 
 %build
 %{__make} -f admin/Makefile.common cvs
@@ -64,25 +60,20 @@ rm -rf $RPM_BUILD_ROOT
 	kde_htmldir=%{_kdedocdir} \
 	kde_libs_htmldir=%{_kdedocdir}
 
-# sick... sources installed here
-rm -r $RPM_BUILD_ROOT%{_kdedocdir}/en/src
-
-%find_lang %{name} --with-kde
+#%find_lang %{name} --with-kde
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files -f %{name}.lang
+#%files -f %{name}.lang
+%files
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README TODO
 %attr(755,root,root) %{_libdir}/kde3/kblogger_panelapplet.so
 %{_libdir}/kde3/kblogger_panelapplet.la
 %{_datadir}/apps/kicker/applets/kblogger.desktop
 %{_datadir}/config.kcfg/kblogger.kcfg
-%{_iconsdir}/crystalsvg/128x128/apps/kblogger.png
-%{_iconsdir}/crystalsvg/16x16/apps/kblogger.png
-%{_iconsdir}/crystalsvg/22x22/apps/kblogger.png
-%{_iconsdir}/crystalsvg/32x32/apps/kblogger.png
-%{_iconsdir}/crystalsvg/48x48/apps/kblogger.png
-%{_iconsdir}/crystalsvg/64x64/apps/kblogger.png
-%{_iconsdir}/crystalsvg/scalable/apps/kblogger.svg
+%dir %{_iconsdir}/crystalsvg/*/apps/kblogger
+%{_iconsdir}/crystalsvg/*/apps/kblogger/warning.png
+%{_iconsdir}/crystalsvg/*/apps/kblogger.png
+#%{_iconsdir}/crystalsvg/scalable/apps/kblogger.svg
