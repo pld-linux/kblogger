@@ -40,7 +40,7 @@ API 1.0. Wsparcie dla Atom API jest planowane.
 
 %prep
 %setup -q -n %{name}-%{version}%{_beta}
-%patch0 -p1
+%patch -P0 -p1
 
 %build
 %{__make} -f admin/Makefile.common cvs
